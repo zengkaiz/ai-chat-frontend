@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 全局样式 */
+@layer base {
+  body {
+    @apply font-sans antialiased;
+    @apply text-light-text dark:text-dark-text;
+
+    /* 浅色模式 - 淡紫色渐变背景 */
+    background: linear-gradient(135deg, #E0C3FC 0%, #8EC5FC 100%);
+    background-attachment: fixed;
+  }
+
+  /* 深色模式 - 深紫色渐变背景 */
+  .dark body {
+    background: linear-gradient(135deg, #4A00E0 0%, #8E2DE2 100%);
+    background-attachment: fixed;
+  }
+
+  #root {
+    @apply h-screen w-screen overflow-hidden;
+  }
+}
+
+/* 代码高亮主题 */
+@layer components {
+  /* 浅色主题代码高亮 */
+  .hljs {
+    @apply bg-gray-100 text-gray-900;
+  }
+
+  /* 深色主题代码高亮 */
+  .dark .hljs {
+    @apply bg-gray-800 text-gray-100;
+  }
+
+  /* 滚动条样式 */
+  .custom-scrollbar::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400 dark:bg-gray-500;
+  }
+}
