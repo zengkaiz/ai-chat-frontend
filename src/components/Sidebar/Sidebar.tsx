@@ -1,7 +1,6 @@
 import { useChatStore } from '@/store'
 import ConversationList from './ConversationList'
 import SidebarHeader from './SidebarHeader'
-import SidebarFooter from './SidebarFooter'
 
 export default function Sidebar() {
   const { isSidebarOpen } = useChatStore()
@@ -16,7 +15,7 @@ export default function Sidebar() {
           border-r border-light-border dark:border-dark-border
           transition-transform duration-300 ease-in-out
           ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0 lg:w-0'}
-          ${isSidebarOpen ? 'w-64' : 'w-0'}
+          ${isSidebarOpen ? 'w-72 sm:w-80 lg:w-64' : 'w-0'}
         `}
       >
         <div className="flex flex-col h-full">
@@ -25,16 +24,13 @@ export default function Sidebar() {
 
           {/* 会话列表 */}
           <ConversationList />
-
-          {/* 底部：设置和主题切换 */}
-          <SidebarFooter />
         </div>
       </aside>
 
       {/* 移动端遮罩层 */}
       {isSidebarOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-30 lg:hidden"
+          className="fixed inset-0 bg-black/60 z-30 lg:hidden backdrop-blur-sm"
           onClick={() => useChatStore.getState().setSidebarOpen(false)}
         />
       )}

@@ -17,10 +17,10 @@ export default function MessageBubble({ message }: MessageBubbleProps) {
     >
       <div
         className={`
-          max-w-[80%] rounded-bubble px-4 py-3
+          max-w-[85%] sm:max-w-[80%] rounded-bubble px-3 sm:px-4 py-2.5 sm:py-3
           ${
             isUser
-              ? 'bg-light-primary dark:bg-dark-primary text-white rounded-br-md shadow-lg'
+              ? 'bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-500 dark:to-purple-500 text-white rounded-br-md shadow-lg'
               : 'glass-light dark:glass-dark text-light-text dark:text-dark-text rounded-bl-md'
           }
         `}
@@ -53,7 +53,7 @@ export default function MessageBubble({ message }: MessageBubbleProps) {
                 a({ node, children, ...props }) {
                   return (
                     <a
-                      className="text-blue-500 hover:text-blue-600 underline"
+                      className="text-purple-500 dark:text-purple-400 hover:text-purple-600 dark:hover:text-purple-300 underline"
                       target="_blank"
                       rel="noopener noreferrer"
                       {...props}

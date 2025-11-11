@@ -20,11 +20,11 @@ export default function MessageList({ conversation }: MessageListProps) {
 
   if (conversation.messages.length === 0) {
     return (
-      <div className="flex-1 flex items-center justify-center">
-        <div className="text-center text-gray-500 dark:text-gray-400 max-w-md px-4">
+      <div className="flex-1 flex items-center justify-center p-4">
+        <div className="text-center text-gray-500 dark:text-gray-400 max-w-md">
           <div className="mb-4">
             <svg
-              className="w-16 h-16 mx-auto text-gray-300 dark:text-gray-600"
+              className="w-12 h-12 sm:w-16 sm:h-16 mx-auto text-gray-300 dark:text-gray-600"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -37,7 +37,7 @@ export default function MessageList({ conversation }: MessageListProps) {
               />
             </svg>
           </div>
-          <h3 className="text-lg font-medium mb-2">开始新对话</h3>
+          <h3 className="text-base sm:text-lg font-medium mb-2">开始新对话</h3>
           <p className="text-sm">
             在下方输入框中输入消息，开始与 AI 助手对话
           </p>
@@ -48,7 +48,7 @@ export default function MessageList({ conversation }: MessageListProps) {
 
   return (
     <div className="flex-1 overflow-y-auto custom-scrollbar">
-      <div className="max-w-4xl mx-auto px-6 py-8 space-y-6">
+      <div className="max-w-4xl mx-auto px-3 sm:px-6 py-4 sm:py-8 space-y-4 sm:space-y-6">
         {conversation.messages.map((message) => (
           <MessageBubble key={message.id} message={message} />
         ))}
